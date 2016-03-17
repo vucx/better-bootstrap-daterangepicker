@@ -855,7 +855,7 @@
                     if (selected.isBefore(this.startDate))
                         selected = this.startDate.clone();
 
-                    if (maxDate && selected.isAfter(maxDate))
+                    if (selected.isAfter(maxDate))
                         selected = maxDate.clone();
 
                 }
@@ -1174,7 +1174,12 @@
 
                 if (!this.alwaysShowCalendars)
                     this.hideCalendars();
-                this.clickApply();
+
+                if (this.autoApply)
+                    this.clickApply();
+                else {
+                    this.updateView();
+                }
             }
         },
 
